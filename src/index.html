@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Агентные системы в CI/CD</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="llm_wrapper.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+    <header>
+        <div>
+            <div class="eyebrow">ВКР</div>
+            <h1>Сравнительный анализ автономных LLM-агентов в процессах CI/CD</h1>
+            <div class="badge">Исследователь: <span id="learner-name">Гость</span></div>
+        </div>
+        <div class="meta">
+            <div class="scoreboard">
+                <div><strong>Слайды:</strong> <span id="score-slides">0</span>/<span id="score-slides-total">31</span>
+                </div>
+                <div><strong>Тест:</strong> <span id="score-test">0</span>/<span id="score-test-total">69</span></div>
+                <div><strong>Итого:</strong> <span id="score-total">0</span>/100</div>
+                <div><strong>Критерий:</strong> <span id="score-status">85+</span></div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="slide-nav" id="slide-nav"></nav>
+
+    <main class="stage">
+
+        <section class="slide active" data-slide="1" data-type="info" data-points="1">
+            <div class="slide-head"><span>Введение</span><span>1 балл</span></div>
+            <h2>Паспорт исследования</h2>
+            <div class="card">
+                <p><strong>Студент:</strong> Кирилл Лапушинский (ИТМО, Backend Developer)</p>
+                <p><strong>Объект исследования:</strong> Мультиагентные системы на базе больших языковых моделей (LLM) в
+                    контурах непрерывной интеграции.</p>
+                <p><strong>Научная гипотеза:</strong> Внедрение архитектуры «Смесь экспертов» (MoE) в сочетании с
+                    паттерном «Рефлексия» (Reflection) позволяет снизить стоимость автоматизированной проверки кода в 10
+                    раз при сохранении точности исправления ошибок на уровне >50% (по метрике SWE-bench Verified).</p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="button" data-complete>Гипотеза принята (+1)</button>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="2" data-type="info" data-points="2">
+            <div class="slide-head"><span>Технологический базис</span><span>2 балла</span></div>
+            <h2>Сравнительный анализ SOTA-моделей</h2>
+            <p>Сравнение проприетарных и открытых решений.</p>
+            <div class="grid">
+                <div class="card">
+                    <span class="tag">DeepSeek-V3 (Архитектура MoE)</span>
+                    <p><strong>Открытые веса:</strong> Модель активирует лишь 37 млрд параметров из 671 млрд для каждого
+                        токена. Это обеспечивает экстремальную экономическую эффективность при локальном развертывании в
+                        CI-раннерах.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">Claude 3.5 Sonnet (Agentic)</span>
+                    <p><strong>Лидер кодирования:</strong> Демонстрирует лучшие показатели в агентных сценариях
+                        благодаря функции работы с артефактами и устойчивости к потере контекста в длинных файлах.</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="button" data-complete>Изучено (+2)</button>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="3" data-type="info" data-points="4">
+            <div class="slide-head"><span>Методология оценки</span><span>4 балла</span></div>
+            <h2>Эволюция метрик качества</h2>
+            <p>Переход от синтетических тестов к оценке решения реальных инженерных задач.</p>
+            <div class="card">
+                <p><strong>1. SWE-bench Verified:</strong> Новый отраслевой стандарт (взамен HumanEval). Оценивает
+                    способность агента автоматически решать Issues из реальных репозиториев GitHub (воcпроизведение бага
+                    → создание патча → прохождение тестов).</p>
+                <p><strong>2. CVE-Bench (Безопасность):</strong> Специализированный бенчмарк 2025 года для оценки
+                    способности моделей исправлять уязвимости (CVE) без внесения новых дефектов.</p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="button" data-complete>Изучено (+4)</button>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="4" data-type="info" data-points="8">
+            <div class="slide-head"><span>Архитектура Агентов</span><span>8 баллов</span></div>
+            <h2>Паттерны проектирования агентов</h2>
+            <p>Отказ от простой генерации (Zero-shot) в пользу итеративных алгоритмов.</p>
+            <div class="grid">
+                <div class="card">
+                    <span class="tag">Рефлексия (Reflection)</span>
+                    <p>Агент анализирует логи компиляции или вывода линтера, самостоятельно находит свои ошибки и
+                        исправляет код в цикле до успешного прохождения тестов.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">Использование инструментов (Tool Use)</span>
+                    <p>Способность модели вызывать внешние утилиты (git, grep, docker) для анализа контекста проекта, а
+                        не только генерации текста.</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="button" data-complete>Изучено (+8)</button>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="5" data-type="info" data-points="16">
+            <div class="slide-head"><span>Информационная безопасность</span><span>16 баллов</span></div>
+            <h2>Риски внедрения и векторы атак</h2>
+            <div class="card">
+                <p><strong>Галлюцинации пакетов (Package Hallucination):</strong> Модели могут предлагать импорт
+                    несуществующих библиотек, что открывает вектор для атак на цепочки поставок (Supply Chain Attacks).
+                </p>
+                <p><strong>Решение (Data Governance):</strong> Использование локальных шлюзов (AI Gateway) и
+                    квантованных моделей (GGUF) внутри закрытого контура предприятия для предотвращения утечки
+                    интеллектуальной собственности.</p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="button" data-complete>Изучено (+16)</button>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="6" data-type="test" data-points="69">
+            <div class="slide-head"><span>Валидация</span><span>Тест (69 баллов)</span></div>
+            <h2>Защита результатов исследования</h2>
+            <p>3 контрольных вопроса по материалам ВКР.</p>
+
+            <form class="quiz" id="quiz-form">
+                <div class="quiz-question" data-question data-name="q1" data-points="23" data-correct="swebench">
+                    <p><strong>1.</strong> Какой бенчмарк в 2025 году стал стандартом оценки способности агентов решать
+                        реальные задачи в репозиториях (вытеснив HumanEval)?</p>
+                    <label><input type="radio" name="q1" value="leetcode"/> LeetCode Hard</label>
+                    <label><input type="radio" name="q1" value="swebench"/> SWE-bench (Verified)</label>
+                    <label><input type="radio" name="q1" value="glue"/> SuperGLUE</label>
+                </div>
+
+                <div class="quiz-question" data-question data-name="q2" data-points="23" data-correct="moe">
+                    <p><strong>2.</strong> Какая архитектура лежит в основе DeepSeek-V3, позволяя активировать лишь
+                        часть экспертов для обработки токена (экономия ресурсов)?</p>
+                    <label><input type="radio" name="q2" value="rnn"/> Рекуррентная сеть (RNN)</label>
+                    <label><input type="radio" name="q2" value="dense"/> Плотный трансформер (Dense)</label>
+                    <label><input type="radio" name="q2" value="moe"/> Смесь экспертов (MoE)</label>
+                </div>
+
+                <div class="quiz-question" data-question data-name="q3" data-type="multi" data-points="23"
+                     data-correct="reflection;hallucination">
+                    <p><strong>3.</strong> Выберите верные утверждения касательно агентных систем:</p>
+                    <label><input type="checkbox" name="q3" value="reflection"/> Паттерн "Рефлексия" позволяет агенту
+                        исправлять собственные ошибки.</label>
+                    <label><input type="checkbox" name="q3" value="nocode"/> Агенты полностью заменили программистов в
+                        2025 году.</label>
+                    <label><input type="checkbox" name="q3" value="hallucination"/> "Галлюцинации пакетов" создают
+                        угрозу безопасности.</label>
+                </div>
+            </form>
+
+            <div class="actions">
+                <button class="btn btn-warm" type="button" id="check-quiz">Проверить результаты</button>
+                <span class="quiz-result" id="quiz-result"></span>
+            </div>
+            <div class="note">Для фиксации оценки в ведомости нажмите кнопку "Завершить и отправить".</div>
+        </section>
+    </main>
+
+    <footer class="controls">
+        <button class="btn btn-ghost" type="button" id="prev-slide">Назад</button>
+        <div class="progress">
+            <div class="bar">
+                <div class="bar-fill" id="progress-fill"></div>
+            </div>
+            <div id="progress-text"></div>
+        </div>
+        <button class="btn btn-ghost" type="button" id="next-slide">Вперед</button>
+        <button class="btn btn-primary" type="button" id="finish-attempt">Завершить и отправить</button>
+    </footer>
+</div>
+</body>
+</html>

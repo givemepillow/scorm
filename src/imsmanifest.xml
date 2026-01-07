@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="com.scorm.givemepillow.llm_cicd_vkr" version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>CAM 1.3</schemaversion>
+  </metadata>
+  <organizations default="llm_org">
+    <organization identifier="llm_org">
+      <title>Сравнительный анализ LLM в CI/CD</title>
+      <item identifier="llm_item" identifierref="llm_resource">
+        <title>Презентация и тестирование</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="llm_resource" type="webcontent" href="index.html" adlcp:scormtype="sco">
+      <file href="index.html"/>
+      <file href="styles.css"/>
+      <file href="app.js"/>
+      <file href="llm_wrapper.js"/>
+    </resource>
+  </resources>
+</manifest>
