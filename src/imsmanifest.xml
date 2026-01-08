@@ -20,7 +20,7 @@
       <file href="index.html"/>
       <file href="styles.css"/>
       <file href="app.js"/>
-      <file href="llm_wrapper.js"/>
+      <file href="llm.js"/>
     </resource>
   </resources>
 </manifest>
